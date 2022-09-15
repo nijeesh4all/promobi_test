@@ -4,7 +4,7 @@ class Api::CourseController < ApplicationController
   def index
     @courses = Course.all.includes(:tutors)
     @pagy, @courses = pagy(@courses)
-    render json: @courses
+    render_json_with_pagination(@pagy, @courses, CourseSerializer)
   end
 
   def create
