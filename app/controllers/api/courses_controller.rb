@@ -1,4 +1,4 @@
-class Api::CourseController < ApplicationController
+class Api::CoursesController < ApplicationController
   include Pagination
 
   def index
