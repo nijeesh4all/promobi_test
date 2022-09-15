@@ -1,6 +1,10 @@
 class Api::CourseController < ApplicationController
+  include Pagination
+
   def index
-    @courses = Course.all
+    @courses = Course.all.includes(:tutors)
+    @pagy, @courses = pagy(@courses)
+    render json: @courses
   end
 
   def create
@@ -19,4 +23,5 @@ class Api::CourseController < ApplicationController
     params.require(:course)
           .permit(:name, tutors_attributes: [:name])
   end
+
 end
