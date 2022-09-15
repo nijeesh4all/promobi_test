@@ -42,11 +42,26 @@ gem 'active_model_serializers'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'bullet'
+  gem 'byebug', platform: :mri
+  gem 'database_cleaner'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'simplecov'
+
+  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # linting
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
 end
 
